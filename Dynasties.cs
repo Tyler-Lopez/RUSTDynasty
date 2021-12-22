@@ -12,8 +12,46 @@ namespace Oxide.Plugins
 {
     [Info("SignUploadAPI", "Bunsen", "1.0.0")]
     [Description("Upload the contents of a sign the player is looking at to Imgur. Optional DiscordCore and ServerRewards integration. https://github.com/Tyler-Lopez/SignUploadAPI")]
-    public class SignUploadAPI : RustPlugin
+    public class Dynasties : RustPlugin
     {
+        /*
+         * DYNASTY
+         * A Dynasty is the same thing as a player
+         */
+        public class Dynasty
+        {
+            private uint OwnerID { get; set; } // STEAM ID of Dynasty Owner
+            private TitleRank Title { get; set; } // Title of Dynasty Owner
+
+
+            #region Currencies
+
+            // GOLD
+            // Daily allowance to all players(dynasties)
+            // More land increases the amount earned, diminished if not enough vassals
+            private uint Gold { get; set; }
+
+
+            private uint Prestige { get; set; }
+
+            #endregion
+
+            private FeudalContract Leige { get; set; }
+            private List<FeudalContract> Vassals { get; set; }
+
+
+
+        }
+
+        enum TitleRank { Baron, Count, Duke, King, Emperor }
+
+        public class FeudalContract
+        {
+            private Dynasty Vassal { get; set; }
+            private double Fief { get; set; }
+        }
+
+        /*
         #region Plug-in References
         [PluginReference] private Plugin ServerRewards;
         [PluginReference] private Plugin ImgurApi;
@@ -272,5 +310,7 @@ namespace Oxide.Plugins
 
         };
         #endregion
+
+        */
     }
 }
