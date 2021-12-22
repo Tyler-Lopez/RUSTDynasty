@@ -10,14 +10,12 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("SignUploadAPI", "Bunsen", "1.0.0")]
-    [Description("Upload the contents of a sign the player is looking at to Imgur. Optional DiscordCore and ServerRewards integration. https://github.com/Tyler-Lopez/SignUploadAPI")]
+    [Info("Dynasties", "Bunsen", "1.0.0")]
+    [Description("")]
     public class Dynasties : RustPlugin
     {
-        /*
-         * DYNASTY
-         * A Dynasty is the same thing as a player
-         */
+        // DYNASTY
+        // All players represent their own Dynasty and thus Dynasty == Player
         public class Dynasty
         {
             private uint OwnerID { get; set; } // STEAM ID of Dynasty Owner
@@ -26,13 +24,10 @@ namespace Oxide.Plugins
 
             #region Currencies
 
-            // GOLD
-            // Daily allowance to all players(dynasties)
-            // More land increases the amount earned, diminished if not enough vassals
             private uint Gold { get; set; }
-
-
             private uint Prestige { get; set; }
+            private uint Piety { get; set; }
+
 
             #endregion
 
